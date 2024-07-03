@@ -1,7 +1,7 @@
 import { env } from '@/env';
 
-const RESOURCE_ID = 'SNOMEDCT-CA';
-const BASE_URL = `https://api.snowray.app/snowowl/snomedct/${RESOURCE_ID}`;
+// MVP used only for queries
+const BASE_URL = `https://www.alphavantage.co`;
 
 /**
  * Generic function to fetch data from the API, already including the API key as Bearer token and transforming the response to JSON object
@@ -13,10 +13,9 @@ export async function apiFetch<TResult = JSON>(
 	endpoint: string,
 	options?: RequestInit | undefined,
 ): Promise<TResult> {
-	const response = await fetch(`${BASE_URL}/${endpoint}`, {
+	const response = await fetch(`${BASE_URL}/${endpoint}&apikey=${env.ALPHA_API_KEY}`, {
 		...options,
 		headers: {
-			Authorization: `Bearer ${env.SNOWRAY_API_KEY}`,
 			Accept: 'application/json',
 			...options?.headers,
 		},
