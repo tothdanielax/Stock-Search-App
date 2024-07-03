@@ -39,7 +39,7 @@ export const env = createEnv({
 	 * middlewares) or client-side so we need to destruct manually.
 	 */
 	runtimeEnv: {
-		SNOWRAY_API_KEY: process.env.SNOWRAY_API_KEY,
+		ALPHA_API_KEY: process.env.ALPHA_API_KEY,
 	},
 
 	/**
@@ -47,9 +47,9 @@ export const env = createEnv({
 	 * isn't built with invalid environment vars.
 	 */
 	server: {
-		SNOWRAY_API_KEY: z
+		ALPHA_API_KEY: z
 			.string({
-				description: 'API key for the Snowray API',
+				description: 'API key for the Alpha API (see https://www.alphavantage.co)',
 			})
 			.readonly(),
 	},
