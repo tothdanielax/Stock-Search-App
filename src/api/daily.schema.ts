@@ -1,26 +1,32 @@
 import { z } from 'zod';
-import { MetadataSchema } from '@/models/metadata';
-import { TimeSeriesSchema } from '@/models/time-series';
+import { SymbolSchema } from '@/models/symbol';
 
 export const GetDailyRequestSchema = z.object({
-	symbol: z.string({
-		description: 'The name of the equity of your choice. For example: symbol=IBM',
-	}),
-	outputsize: z
-		.enum(['compact', 'full'], {
-			description:
-				'By default, outputsize=compact. Set to outputsize=full to receive the full-length time series.',
-		})
-		.optional(),
+	symbol: SymbolSchema,
+	outputsize: z.enum(['compact', 'full']).optional(),
 });
 
 export type GetDailyRequest = z.infer<typeof GetDailyRequestSchema>;
 
 export const GetDailyResponseSchema = z.object({
-	Metadata: MetadataSchema,
-	TimeSeries: TimeSeriesSchema,
+	'Meta Data': z.object({
+		'1. Information': z.string(),
+		'2. Symbol': z.string(),
+		'3. Last Refreshed': z.string(),
+		'4. Output Size': z.string(),
+		'5. Time Zone': z.string(),
+	}),
+	'Time Series (Daily)': z.record(
+		z.object({
+			'1. open': z.string(),
+			'2. high': z.string(),
+			'3. low': z.string(),
+			'4. close': z.string(),
+			'5. volume': z.string(),
+		}),
+	),
 });
 
 export type GetDailyResponse = z.infer<typeof GetDailyResponseSchema>;
 
-export type GetDailyTimeSeries = (request: GetDailyRequest) => Promise<GetDailyResponse>;
+export type GetDailyFn = (request: GetDailyRequest) => Promise<GetDailyResponse>;
