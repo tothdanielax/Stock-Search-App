@@ -28,7 +28,16 @@ export function DailyTimeSeriesDropdown({ results, ...props }: DailyTimeSeriesDr
 		: [];
 
 	return (
-		<Flex justify="center" align="start" direction="column" {...props}>
+		<Flex
+			justify="center"
+			align="start"
+			direction="column"
+			w={{
+				base: '100vw',
+				md: 'auto',
+			}}
+			{...props}
+		>
 			{paginatedData?.length === 0 ? (
 				<Text>{t('noResults')}</Text>
 			) : (
@@ -39,6 +48,8 @@ export function DailyTimeSeriesDropdown({ results, ...props }: DailyTimeSeriesDr
 				value={page}
 				onChange={setPage}
 				mt="sm"
+				size="sm"
+				w={{ base: '90%', md: 'auto' }}
 			/>
 		</Flex>
 	);

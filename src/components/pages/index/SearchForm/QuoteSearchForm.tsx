@@ -32,7 +32,7 @@ export function QuoteSearchForm({ onSubmit, onReset, form }: QuoteSearchFormProp
 
 	return (
 		<form
-			className="relative flex h-full w-1/2 flex-col items-center justify-center gap-5 p-10"
+			className="relative flex h-full flex-col items-center justify-center gap-5 py-10 sm:w-screen md:w-1/2"
 			onSubmit={form.onSubmit(onSubmit)}
 			onReset={onReset}
 		>

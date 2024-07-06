@@ -25,19 +25,38 @@ export function ClientLayout({ children }: ClientLayoutProps) {
 	return (
 		<AnimatePresence mode="wait" initial={false}>
 			<MantineProvider defaultColorScheme="auto" theme={theme}>
-				<AppShell header={{ height: 60 }} padding="sm" w="100vw" h="100vh" pos="relative">
+				<AppShell
+					header={{ height: { base: 150, sm: 60 } }}
+					padding="sm"
+					w="100vw"
+					h="100vh"
+					pos="relative"
+					className="overflow-x-hidden"
+				>
 					<AppShell.Header>
 						<Flex
-							className="w-screen"
+							w="100vw"
 							justify="space-between"
 							align="center"
 							gap={{ base: 15, sm: 5 }}
 							py={5}
-							px={30}
+							px={{
+								base: 10,
+								sm: 20,
+							}}
 							mb={{ base: 20, xs: 0 }}
 							direction={{ base: 'column', sm: 'row' }}
 						>
-							<Flex className="w-fit" justify="center" align="center" gap={5}>
+							<Flex
+								className="w-fit"
+								justify="center"
+								align="center"
+								direction={{
+									base: 'column',
+									sm: 'row',
+								}}
+								gap={{ base: 15, sm: 5 }}
+							>
 								<LanguageSelect />
 								<ColorSchemeToggle />
 							</Flex>

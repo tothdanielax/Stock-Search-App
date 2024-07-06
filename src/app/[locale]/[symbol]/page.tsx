@@ -37,15 +37,41 @@ export default async function StockDetailsPage({ params }: StockDetailsPageProps
 	return (
 		<>
 			<StockDetailsClient symbol={symbol} />
-			<Flex justify="center" align="start" direction="row" p={50}>
+			<Flex
+				justify="center"
+				align="start"
+				direction={{
+					base: 'column',
+					md: 'row',
+				}}
+				gap={{
+					base: 40,
+					md: 10,
+				}}
+				p={50}
+			>
 				<Flex direction="column" w="50%">
-					<Title order={1} td="underline">
+					<Title
+						order={3}
+						td="underline"
+						w={{
+							base: '100%',
+							md: 'auto',
+						}}
+					>
 						{t('quote')}
 					</Title>
 					<QuoteRender data={quoteData} />
 				</Flex>
 				<Flex direction="column" w="50%">
-					<Title order={1} td="underline">
+					<Title
+						order={3}
+						td="underline"
+						w={{
+							base: '100%',
+							md: 'auto',
+						}}
+					>
 						{t('daily')}
 					</Title>
 					<DailyTimeSeriesDropdown results={dailyData['Time Series (Daily)']} />
