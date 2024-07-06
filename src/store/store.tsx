@@ -1,10 +1,10 @@
-import { type ConceptStore } from '@/store/slices/conceptStore';
+import { type StockStore } from '@/store/slices/stockStore';
 import { useEffect, useState } from 'react';
 
 /**
  * Type for the central store of the application ({@link useStore}).
  */
-type Store = Readonly<ConceptStore>;
+type Store = Readonly<StockStore>;
 
 /**
  * Central store for the application.
