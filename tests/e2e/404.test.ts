@@ -6,6 +6,5 @@ test.beforeEach(async ({ page }) => {
 
 test('not existing', async ({ page }) => {
 	await expect(page.getByRole('heading', { name: /404/i })).toBeVisible();
-	// Use getByText with additional text to target the paragraph
 	await expect(page.getByText(/not found/i)).toBeVisible();
 });

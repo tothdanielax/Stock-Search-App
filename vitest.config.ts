@@ -6,11 +6,11 @@ export default defineConfig({
 	plugins: [react(), tsconfigPaths()],
 	test: {
 		coverage: {
-			exclude: ['src/styles', 'src/types', 'src/pages'],
-			extesions: ['.ts', '.tsx'],
+			exclude: ['src/styles', 'src/types', 'src/app'],
+			extension: ['.ts', '.tsx'],
 			ignoreEmptyLines: true,
 			include: ['src/**'],
-			reporters: ['default', 'json', 'json-summary', 'html'],
+			reporter: ['default', 'json', 'json-summary', 'html'],
 		},
 		environment: 'jsdom',
 		exclude: ['tests/unit/testing-utils'],

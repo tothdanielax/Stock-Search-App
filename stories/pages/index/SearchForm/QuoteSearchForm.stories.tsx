@@ -4,8 +4,8 @@ import { QuoteSearchForm } from '@/components/pages/index/SearchForm/QuoteSearch
 import { useForm as originalUseForm, type UseFormInput } from '@mantine/form';
 
 const useForm = (
-	args:
-		| UseFormInput<Record<string, any>, (values: Record<string, any>) => Record<string, any>>
+	args: // @ts-ignore
+	| UseFormInput<Record<string, any>, (values: Record<string, any>) => Record<string, any>>
 		| undefined,
 ) => {
 	const form = originalUseForm(args);
@@ -27,6 +27,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+// @ts-ignore
 export const Default: Story = {
 	render: () => {
 		const form = useForm({

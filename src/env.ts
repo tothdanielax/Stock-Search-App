@@ -2,18 +2,6 @@ import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
 
 /**
- * Helper function to validate a string and transform it to a boolean.
- * {@link https://env.t3.gg/docs/recipes#booleans}
- */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const onlyBoolean = z
-	.string()
-	// only allow "true" or "false"
-	.refine((s) => s === 'true' || s === 'false')
-	// transform to boolean
-	.transform((s) => s === 'true');
-
-/**
  * This file is used to validate and expose environment variables to the app. It uses the `zod` validation library.
  * {@link https://env.t3.gg/docs/nextjs}
  */

@@ -19,11 +19,11 @@ type SelectedRenderProps = Readonly<{
 }>;
 
 /**
- * A strongly typed component that renders the selected value in ID | Name format.
+ * Component that renders the selected model or a placeholder if no model is selected.
  */
 export function SelectedRender({ children, modelName }: SelectedRenderProps) {
 	const t = useTranslations('SelectedRender');
 	const tModel = useTranslations(`models.${modelName}`);
 
-	return <Box>{children ?? t('selectMatchingTerm', { modelName: tModel('name') })}</Box>;
+	return <Box>{children ?? t('selectStock', { modelName: tModel('name') })}</Box>;
 }

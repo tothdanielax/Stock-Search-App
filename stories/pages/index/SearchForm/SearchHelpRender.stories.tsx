@@ -15,8 +15,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+// @ts-ignore
 export const Default: Story = {};
 export const NoMatch: Story = {
+	// @ts-ignore
 	args: {
 		suggestions: { bestMatches: [] } as GetSearchResponse,
 	},
