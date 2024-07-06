@@ -1,7 +1,7 @@
 {
 	"inputs": {
-		"LazySearchInput": {
-			"placeholder": "e.g. test",
+		"Search": {
+			"placeholder": "e.g. IBM",
 			"search": "Search",
 			"label": "{modelName, plural, =0 {Search} other {Search for {modelName}}}",
 			"tooltip": "Search for {modelName} by clicking on the search icon or pressing Enter",
@@ -18,15 +18,11 @@
 			"en": "English/English",
 			"hu": "Hungarian/Magyar",
 			"select-language": "Select language"
-		},
-		"LimitSlider": {
-			"sliderLabel": "Max number of results"
 		}
 	},
 	"models": {
-		"SnomedConcept": {
-			"shortName": "Concept",
-			"longName": "SNOMED CT Concept"
+		"Symbol": {
+			"name": "Symbol"
 		}
 	},
 	"ResultDropdown": {
@@ -34,6 +30,41 @@
 		"Results": "Results"
 	},
 	"SelectedRender": {
-		"selectMatchingTerm": "Select a matching term.."
+		"selectStock": "Search for a stock to view details..."
+	},
+	"SelectedStockRender": {
+		"selectStock": "Search for a stock to view details...",
+		"tooltip": "Click to view details"
+	},
+	"SearchHelpRender": {
+		"noSuggestions": "No suggestions found"
+	},
+	"QuoteRender": {
+		"symbol": "Symbol",
+		"noData": "No data"
+	},
+	"NotFound": {
+		"notFound": "Not found",
+		"messages": {
+			"invalidSymbol": "Could not find requested resource with symbol: {symbol}."
+		},
+		"back": "Back to search"
+	},
+	"StockDetailsPage": {
+		"back": "Back to search",
+		"daily": "Daily data",
+		"quote": "Global Quote"
+	},
+	"DailyQuote": {
+		"symbol": "Symbol",
+		"open": "Open",
+		"high": "High",
+		"low": "Low",
+		"price": "Price",
+		"volume": "Volume",
+		"latestTradingDay": "Latest trading day",
+		"previousClose": "Previous close",
+		"change": "Change",
+		"changePercent": "Change percent"
 	}
 }

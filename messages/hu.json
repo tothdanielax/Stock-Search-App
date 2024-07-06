@@ -1,9 +1,9 @@
 {
 	"inputs": {
-		"LazySearchInput": {
-			"placeholder": "pl. test",
+		"Search": {
+			"placeholder": "pl. IBM",
 			"search": "Keresés",
-			"label": "{modelName, plural, =0 {Keresés} other {Keresés {modelName}-re}}",
+			"label": "{modelName, plural, =0 {Keresés} other {{modelName} keresés}}",
 			"tooltip": "{modelName} keresése a keresés ikonra kattintva vagy az Enter megnyomásával",
 			"clear": "Keresés törlése"
 		},
@@ -18,15 +18,11 @@
 			"en": "Angol/English",
 			"hu": "Magyar/Hungarian",
 			"select-language": "Nyelv kiválasztása"
-		},
-		"LimitSlider": {
-			"sliderLabel": "Maximális találatok száma"
 		}
 	},
 	"models": {
-		"SnomedConcept": {
-			"shortName": "Concept",
-			"longName": "SNOMED CT Concept"
+		"Symbol": {
+			"name": "Azonosító"
 		}
 	},
 	"ResultDropdown": {
@@ -34,6 +30,41 @@
 		"Results": "Találatok"
 	},
 	"SelectedRender": {
-		"selectMatchingTerm": "Válasszon ki egy Snomed CT Concept-et..."
+		"selectStock": "Keress egy Stock-ra a részletek megtekintéséhez..."
+	},
+	"SelectedStockRender": {
+		"selectStock": "Keress egy részvényre a kiválasztáshoz...",
+		"tooltip": "Kattints a részletek megtekintéséhez"
+	},
+	"SearchHelpRender": {
+		"noSuggestions": "Nincs találat javaslatra"
+	},
+	"QuoteRender": {
+		"symbol": "Azonosító",
+		"noData": "Nincs adat"
+	},
+	"NotFound": {
+		"notFound": "Nem található",
+		"messages": {
+			"invalidSymbol": "A kért erőforrás nem megtalálható a következő azonosítóval: {symbol}."
+		},
+		"back": "Vissza a kereséshez"
+	},
+	"StockDetailsPage": {
+		"back": "Vissza a kereséshez",
+		"daily": "Napi adatok",
+		"quote": "Globális adatok"
+	},
+	"DailyQuote": {
+		"symbol": "Azonosító",
+		"open": "Nyitóár",
+		"high": "Csúcsár",
+		"low": "Legalacsonyabb ár",
+		"price": "Ár",
+		"volume": "Forgalom",
+		"latestTradingDay": "Legutolsó kereskedési nap",
+		"previousClose": "Előző záróár",
+		"change": "Változás",
+		"changePercent": "Változás százalékban"
 	}
 }
