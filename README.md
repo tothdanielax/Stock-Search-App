@@ -13,7 +13,7 @@
 
 # Description
 
-## Snomed CT Component Quick Search MVP with Next.js, Mantine, TypeScript, Storybook and more.
+## Stock Search MVP with Next.js, Mantine, TypeScript, Storybook and more.
 
 # Setup
 
