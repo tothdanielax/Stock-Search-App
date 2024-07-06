@@ -52,8 +52,8 @@ afterEach(() => {
 });
 
 // NAVIGATION MOCKS
-vi.mock('/src/navigation.ts', async () => ({
-	...(await vi.importActual('src/navigation.ts')),
+vi.mock('@/navigation.ts', async () => ({
+	...(await vi.importActual('@/navigation.ts')),
 	redirect: vi.fn(),
 	usePathname: vi.fn(),
 	useRouter: vi.fn(),
