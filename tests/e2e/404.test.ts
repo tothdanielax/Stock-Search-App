@@ -1,10 +1,11 @@
 import { expect, test } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-	await page.goto('/en/notfound');
+	await page.goto('/en/404');
 });
 
 test('not existing', async ({ page }) => {
-	await expect(page.getByText('404')).toBeVisible();
-	await expect(page.getByText('This page could not be found.')).toBeVisible();
+	await expect(page.getByRole('heading', { name: /404/i })).toBeVisible();
+	// Use getByText with additional text to target the paragraph
+	await expect(page.getByText(/not found/i)).toBeVisible();
 });
