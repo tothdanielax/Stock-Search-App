@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { SnomedConceptSearch } from '@/components/index/SearchForm/SnomedConceptSearch';
+import { SymbolSearch } from '@/components/pages/index/SearchForm/SymbolSearch';
 import { fn } from '@storybook/test';
 
 const meta = {
-	title: 'Index/SearchForm/SnomedConceptSearch',
-	component: SnomedConceptSearch,
+	title: 'Pages/Index/SearchForm/SymbolSearch',
+	component: SymbolSearch,
 	args: {
 		onChange: fn(),
 	},
-} satisfies Meta<typeof SnomedConceptSearch>;
+} satisfies Meta<typeof SymbolSearch>;
 
 export default meta;
 

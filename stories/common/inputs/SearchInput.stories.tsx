@@ -7,7 +7,7 @@ const meta: Meta<typeof SearchInput> = {
 	title: 'Common/Inputs/SearchInput',
 	component: SearchInput,
 	args: {
-		model: 'SnomedConcept',
+		model: 'Symbol',
 		onChange: fn(),
 	},
 };
@@ -25,7 +25,7 @@ export const WithClear: Story = {
 			<SearchInput
 				value={value}
 				onChange={(e) => setValue(e.target.value)}
-				model="SnomedConcept"
+				model="Symbol"
 				allowReset
 				onReset={() => setValue('')}
 				defaultValue={value}

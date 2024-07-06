@@ -1,33 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { SnomedConceptDropdown } from '@/components/index/SnomedConceptDropdown/SnomedConceptDropdown';
-import { GetSnomedConceptResultsMock } from '@tests/data';
+import { ResultDropdown } from '@/components/common/ResultDropdown';
 
 const meta = {
 	title: 'Common/Render/ResultDropdown',
-	component: SnomedConceptDropdown,
+	component: ResultDropdown,
 	args: {},
-} satisfies Meta<typeof SnomedConceptDropdown>;
+} satisfies Meta<typeof ResultDropdown>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	args: {
-		results: GetSnomedConceptResultsMock,
-		highlightTerm: 'Res',
-	},
-};
-
-export const Empty: Story = {
-	args: {
-		results: [],
-		highlightTerm: '',
-	},
-};
-
-export const WithEmptyHighlight: Story = {
-	args: {
-		results: GetSnomedConceptResultsMock,
-		highlightTerm: '',
+		label: 'Results',
+		children: <p>Children</p>,
 	},
 };

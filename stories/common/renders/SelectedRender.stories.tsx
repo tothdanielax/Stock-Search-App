@@ -5,7 +5,7 @@ const meta = {
 	title: 'Common/Render/SelectedRender',
 	component: SelectedRender,
 	args: {
-		modelName: 'SnomedConcept',
+		modelName: 'Symbol',
 		children: 'Select something...',
 	},
 } satisfies Meta<typeof SelectedRender>;

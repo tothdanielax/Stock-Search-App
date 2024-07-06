@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { SnomedConceptSearchForm } from '@/components/index/SearchForm/SnomedConceptSearchForm';
+import { QuoteSearchForm } from '@/components/pages/index/SearchForm/QuoteSearchForm';
 import { useForm as originalUseForm, type UseFormInput } from '@mantine/form';
 
 const useForm = (
@@ -19,9 +19,9 @@ const useForm = (
 };
 
 const meta = {
-	title: 'Index/SearchForm/SnomedConceptSearchForm',
-	component: SnomedConceptSearchForm,
-} satisfies Meta<typeof SnomedConceptSearchForm>;
+	title: 'Pages/Index/SearchForm/QuoteSearchForm',
+	component: QuoteSearchForm,
+} satisfies Meta<typeof QuoteSearchForm>;
 
 export default meta;
 
@@ -36,6 +36,7 @@ export const Default: Story = {
 			},
 		});
 
-		return <SnomedConceptSearchForm form={form} onSubmit={fn()} onReset={fn()} />;
+		// @ts-ignore
+		return <QuoteSearchForm form={form} onSubmit={fn()} onReset={fn()} />;
 	},
 };
