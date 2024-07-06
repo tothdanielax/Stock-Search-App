@@ -1,14 +1,18 @@
 'use client';
 
 import { useCallback, useState, useTransition } from 'react';
-import type { SnomedConcept } from '@/models/SnomedConcept';
 import { useQuery } from '@/hooks/useQuery';
-import { SnomedConceptDropdown } from '@/components/index/SnomedConceptDropdown/SnomedConceptDropdown';
-import { getSnomedConcepts } from '@/api/concepts.api';
 import { Box, Flex, Skeleton } from '@mantine/core';
-import { SnomedConceptSearchForm } from '@/components/index/SearchForm/SnomedConceptSearchForm';
+import { QuoteSearchForm } from '@/components/pages/index/SearchForm/QuoteSearchForm';
 import { useForm, zodResolver } from '@mantine/form';
-import { GetSnomedConceptsFilterSchema } from '@/api/concepts.schema';
+import { type GetQuoteResponse } from '@/api/quote.schema';
+import { getQuote } from '@/api/quote.api';
+import {
+	QuoteSearchFormSchema,
+	type QuoteSearchFormType,
+} from '@/components/pages/index/SearchForm/quoteSearchForm.schema';
+import { useStockStore } from '@/store/slices/stockStore';
+import { QuoteRender } from '@/components/common/QuoteRender';
 
 /**
  * Skeleton that is rendered during the loading of the dropdown.
@@ -28,35 +32,31 @@ function DropdownSkeleton() {
  */
 export default function IndexPage() {
 	const query = useQuery();
-
-	const form = useForm({
+	const stockStore = useStockStore();
+	const quoteSearchForm = useForm({
 		mode: 'controlled',
+		name: 'quoteSearchForm',
 		initialValues: {
-			term: query.get('term') ?? '',
-			limit: query.get('limit') ? Number(query.get('limit')) : 5,
+			symbol: query.get('symbol') ?? '',
 		},
-		validate: zodResolver(GetSnomedConceptsFilterSchema),
+		validate: zodResolver(QuoteSearchFormSchema),
 	});
 
-	const [searchResults, setSearchResults] = useState<SnomedConcept[] | undefined>();
-	const [highlightTerm, setHighlightTerm] = useState<string | undefined>();
+	const [searchResults, setSearchResults] = useState<GetQuoteResponse | undefined>();
 	const [isPending, startTransition] = useTransition();
 
 	/**
 	 * Handler for the search button. It fires when the user clicks the search button or presses enter.
-	 * The terms are stored in query to ensure that the search results are preserved when the user navigates back to the page.
 	 */
-	const handleSubmit = async (values: { term: string; limit: number }) => {
-		query.set('term', values.term);
-		query.set('limit', values.limit.toString());
+	const handleSubmit = async (values: QuoteSearchFormType) => {
+		query.set('symbol', values.symbol);
 
 		startTransition(async () => {
-			const apiResults = await getSnomedConcepts({
-				term: values.term,
-				limit: values.limit,
+			const apiResults = await getQuote({
+				symbol: values.symbol,
 			});
 			setSearchResults(apiResults);
-			setHighlightTerm(values.term);
+			stockStore.setSelectedStockSymbol(values.symbol);
 		});
 	};
 
@@ -64,23 +64,16 @@ export default function IndexPage() {
 	 * Handler for the reset button. It resets the form and clears the query.
 	 */
 	const handleReset = useCallback(() => {
-		form.reset();
+		quoteSearchForm.reset();
 		query.resetAll();
-	}, [form, query]);
+	}, [quoteSearchForm, query]);
 
 	return (
 		<Flex className="items-center" direction="column" gap={{ base: 30, md: 50 }}>
-			<SnomedConceptSearchForm onSubmit={handleSubmit} onReset={handleReset} form={form} />
+			<QuoteSearchForm onSubmit={handleSubmit} onReset={handleReset} form={quoteSearchForm} />
 
 			<Box w={{ base: '90%', md: '40%' }}>
-				{isPending ? (
-					<DropdownSkeleton />
-				) : (
-					searchResults &&
-					highlightTerm && (
-						<SnomedConceptDropdown results={searchResults} highlightTerm={highlightTerm} />
-					)
-				)}
+				{isPending ? <DropdownSkeleton /> : <QuoteRender data={searchResults} />}
 			</Box>
 		</Flex>
 	);

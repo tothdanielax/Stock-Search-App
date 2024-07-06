@@ -21,8 +21,8 @@ type AppLayoutProps = {
  */
 export const metadata: Metadata = {
 	title: {
-		template: '%s - Snomed CT',
-		default: 'Concepts - Snomed CT',
+		template: '%s - Stock Search',
+		default: 'Daily - Stock Search',
 	},
 };
 

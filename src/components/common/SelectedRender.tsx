@@ -25,5 +25,5 @@ export function SelectedRender({ children, modelName }: SelectedRenderProps) {
 	const t = useTranslations('SelectedRender');
 	const tModel = useTranslations(`models.${modelName}`);
 
-	return <Box>{children ?? t('selectMatchingTerm', { modelName: tModel('shortName') })}</Box>;
+	return <Box>{children ?? t('selectMatchingTerm', { modelName: tModel('name') })}</Box>;
 }

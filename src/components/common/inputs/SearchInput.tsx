@@ -21,17 +21,17 @@ export type SearchInputProps = Readonly<
 >;
 
 /**
- * Search input component that supports for e.g. finding relevant concepts based on the entered search term.
+ * Search input component that supports for e.g. finding relevant stocks based on the entered search term.
  */
 export function SearchInput({ model, allowReset, ...props }: SearchInputProps) {
-	const t = useTranslations('inputs.LazySearchInput');
+	const t = useTranslations('inputs.Search');
 	const tModel = useTranslations(`models.${model}`);
 
 	return (
 		<TextInput
 			data-testid="search-input"
-			label={t('label', { modelName: tModel('longName') })}
-			placeholder={t('placeholder', { modelName: tModel('longName') })}
+			label={t('label', { modelName: tModel('name') })}
+			placeholder={t('placeholder', { modelName: tModel('name') })}
 			rightSection={
 				<Flex className="h-full w-full items-center justify-center bg-transparent p-2">
 					<Tooltip label={t('search')} position="bottom" withArrow>
