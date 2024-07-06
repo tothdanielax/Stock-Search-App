@@ -1,12 +1,12 @@
 {
-	"name": "snomed-ct-quick-search",
+	"name": "stock-search-app",
 	"type": "module",
 	"version": "1.0.0",
 	"author": {
 		"name": "Daniel Zsolt Toth"
 	},
 	"readme": "README.md",
-	"description": "Snomed CT Quick Search MVP",
+	"description": "Stock Search MVP",
 	"engineStrict": true,
 	"engines": {
 		"node": ">=20.12.2",

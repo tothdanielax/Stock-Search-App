@@ -78,6 +78,8 @@ const config = {
 			},
 		],
 
+		'no-console': 'off',
+
 		/**
 		 * use effect cleanups
 		 */
